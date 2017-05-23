@@ -1,0 +1,135 @@
+METADYNAMICS ON ALANINE DIPEPTIDE: PHI-PSI FREE ENERGY DEMO
+===========================================================
+
+Toni Giorgino 2017
+
+National Research Council of Italy
+
+
+This is a test case reproducing the phi-psi alanine dipeptide free
+energy plot shown e.g. in references [1] and [2] via PLUMED 1.
+
+
+Methods
+-------
+
+This demo uses ACEMD [3] and PLUMED 1 [2] to compute the phi-psi free
+energy landscape of the alanine dipeptide via well-tempered
+metadynamics [1]. The dipeptide is modelled in vacuo with the CHARMM
+forcefield.  The total length of the run is 10 ns, simulated with a
+timestep of 1 fs. There are 100,000 gaussians in total, deposited at a
+rate of 1 every 100 fs.
+
+
+Requirements
+------------
+
+This demo relies on PLUMED 1. The easiest way to obtain it is to
+install the plumed1 package in Acellera's conda channel, which
+includes the required ACEMD-compatible version of PLUMED packaged as a
+shared library. If you installed acemd via Conda, you may already have
+it in your system.
+
+
+Run the simulation
+------------------
+
+We assume that you have ACEMD and PLUMED installed and tested. The
+file *libplumed1plugin.so* should be linked in your current directory,
+or be copied in one of the directories explained by `acemd --command
+pluginload'. To launch the simulation, type
+
+	shell>  acemd acemd_input
+
+This will take several hours. 
+
+
+
+Compute and plot the free-energy surface
+----------------------------------------
+
+Use the "sum_hills" program, part of the PLUMED distribution, to
+compute the 2D free energy surface.
+
+	shell>	sum_hills -ndim 2 -ndw 1 2 -pi 1 -pi 2 
+
+
+The landscape can be plotted with gnuplot or other programs.
+
+	shell>	gnuplot
+	gnuplot>  plot "fes.dat" with image
+
+
+
+Animations
+----------
+
+You can try "sum_hills" then "gnuplot" even while the simulation is
+running. This allows you to see metadynamics in action, gradually
+filling the free energy surface. 
+
+The "reference/animate_fes_100k.avi" file shows an animation of what's
+happening. There are 1000 animation frames taken at 10 ps
+intervals. Between each frame and the next, 100 gaussians are
+deposited. Observe how (at the beginning) the free energy basins are
+alternatively filled.
+
+Note that you will need a recent movie player application to display
+the animation, which is encoded in the h264 format. VLC and mplayer
+will do.
+
+
+Remarks
+-------
+
+Consider that Plumed computes forces on the CPU, thus it will likely
+slow down ACEMD. Also, keep into account that, by default (i.e., not
+using GRID), the computation burden increases with each accumulated
+hill.
+
+Restarts are supported in PLUMED1, but they require special care to be
+in sync with ACEMD's checkpoints. 
+
+
+
+References
+----------
+
+[1] A Laio and F L Gervasio. Metadynamics: a method to simulate rare
+events and reconstruct the free energy in biophysics, chemistry and
+material science. Rep. Prog. Phys. 71 (2008)
+doi:10.1088/0034-4885/71/12/126601
+
+[2] M Bonomi et al, PLUMED: a portable plugin for free-energy
+calculations with molecular dynamics. arXiv:0902.0874v3
+
+[3] M. Harvey, G. Giupponi and G. De Fabritiis, ACEMD: Accelerated
+molecular dynamics simulations in the microseconds timescale,
+J. Chem. Theory and Comput. 5, 1632 (2009).
+
+
+
+
+
+ACEMD PARAMETERS (extract from acemd_input)
+  switchdist 		20
+  cutoff 		22
+  timestep 		1
+  langevin            	on    
+  langevindamping     	1  
+  langevintemp        	300
+  run	     		10000000
+ 
+
+
+PLUMED PARAMETERS (extract from META_INP)
+  TORSION LIST 13 15 17 1 SIGMA 0.2
+  TORSION LIST 15 17  1 3 SIGMA 0.2
+  HILLS HEIGHT 0.1 W_STRIDE 100
+  WELLTEMPERED SIMTEMP 300 BIASFACTOR 10
+
+
+
+Total run length:
+  10 ns
+  100000 gaussians 

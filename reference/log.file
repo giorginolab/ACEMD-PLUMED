@@ -1,0 +1,83 @@
+ 
+::::::::::::::::: READING PLUMED INPUT :::::::::::::::::
+|-PRINTING ON COLVAR FILE EVERY 100 STEPS
+
+1-TORSION: (1st SET: 1 ATOMS), (2nd SET: 1 ATOMS), (3rd SET: 1 ATOMS) , (4th SET: 1 ATOMS); 
+|- 1st SET MEMBERS:  13 
+|- 2nd SET MEMBERS:  15 
+|- 3rd SET MEMBERS:  17 
+|- 4th SET MEMBERS:  1 
+
+
+2-TORSION: (1st SET: 1 ATOMS), (2nd SET: 1 ATOMS), (3rd SET: 1 ATOMS) , (4th SET: 1 ATOMS); 
+|- 1st SET MEMBERS:  15 
+|- 2nd SET MEMBERS:  17 
+|- 3rd SET MEMBERS:  1 
+|- 4th SET MEMBERS:  3 
+
+|-HILLS:
+|--HEIGHT 0.100000  WRITING STRIDE 100 DEPOSITION RATE 0.001000 
+
+|-WELL TEMPERED METADYNAMICS WITH BIAS FACTOR 10.000000 (CVTEMP = 3000.000000) 
+
+|-HILLS ACTIVE ON COLVAR 1
+|-HILLS ACTIVE ON COLVAR 2
+
+++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
+  M. Bonomi, D. Branduardi, G. Bussi, C. Camilloni, D. Provasi, P. Raiteri, 
+  D. Donadio, F. Marinelli, F. Pietrucci, R. A. Broglia and M. Parrinello 
+  PLUMED: a portable plugin for free-energy calculations with molecular dynamics
+  arXiv:0902.0874 [physics.comp-ph] 
+-------- -------- --- Thank You --- -------- --------
+
+
+++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
+  A. Laio and M. Parrinello
+  Escaping free energy minima
+  Proc. Natl. Acad. Sci. USA. 2002 vol. 99 (20) pp. 12562-6
+-------- -------- --- Thank You --- -------- --------
+
+
+++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
+  A. Barducci, G. Bussi and M. Parrinello
+  Well-Tempered Metadynamics: A Smoothly Converging and Tunable Free-Energy Method 
+  Phys. Rev. Lett. 2008 vol. 100 (2) pp. 020603 
+-------- -------- --- Thank You --- -------- --------
+
+
+** PLUMED is free software: you can redistribute it and/or modify 
+** it under the terms of the GNU Lesser General Public License as published by 
+** the Free Software Foundation, either version 3 of the License, or 
+** (at your option) any later version. 
+
+** PLUMED is distributed in the hope that it will be useful,
+** but WITHOUT ANY WARRANTY; without even the implied warranty of 
+** MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the 
+** GNU Lesser General Public License for more details. 
+
+** You should have received a copy of the GNU Lesser General Public License
+** along with PLUMED.  If not, see <http://www.gnu.org/licenses/>.  
+
+** For more info, see:  http://merlino.mi.infn.it/plumed 
+** or subscribe to plumed-users@googlegroups.com 
+
+HILLS REALLOCATION--OLD DIMENSION: 10000
+HILLS REALLOCATION--NEW DIMENSION: 20000
+HILLS REALLOCATION--OLD DIMENSION: 20000
+HILLS REALLOCATION--NEW DIMENSION: 30000
+HILLS REALLOCATION--OLD DIMENSION: 30000
+HILLS REALLOCATION--NEW DIMENSION: 40000
+HILLS REALLOCATION--OLD DIMENSION: 40000
+HILLS REALLOCATION--NEW DIMENSION: 50000
+HILLS REALLOCATION--OLD DIMENSION: 50000
+HILLS REALLOCATION--NEW DIMENSION: 60000
+HILLS REALLOCATION--OLD DIMENSION: 60000
+HILLS REALLOCATION--NEW DIMENSION: 70000
+HILLS REALLOCATION--OLD DIMENSION: 70000
+HILLS REALLOCATION--NEW DIMENSION: 80000
+HILLS REALLOCATION--OLD DIMENSION: 80000
+HILLS REALLOCATION--NEW DIMENSION: 90000
+HILLS REALLOCATION--OLD DIMENSION: 90000
+HILLS REALLOCATION--NEW DIMENSION: 100000
+HILLS REALLOCATION--OLD DIMENSION: 100000
+HILLS REALLOCATION--NEW DIMENSION: 110000
