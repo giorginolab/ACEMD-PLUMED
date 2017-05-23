@@ -41,7 +41,8 @@ pluginload'.  For example, issue this:
 
     ln -s `dirname \`which conda\``/../lib/libplumed1plugin.so .
     
-Note that the simulation will start even if the plugin is not found!
+Note that, even if the plugin is not found, the simulation will start 
+nevertheless, and give wrong (unbiased) results!
 
 
 Run the simulation
