@@ -31,13 +31,23 @@ shared library. If you installed acemd via Conda, you may already have
 it in your system.
 
 
-Run the simulation
-------------------
+Set-up
+------
 
 We assume that you have ACEMD and PLUMED installed and tested. The
 file *libplumed1plugin.so* should be linked in your current directory,
 or be copied in one of the directories explained by `acemd --command
-pluginload'. To launch the simulation, type
+pluginload'.  For example, issue this:
+
+    ln -s `dirname \`which conda\``/../lib/libplumed1plugin.so .
+    
+Note that the simulation will start even if the plugin is not found!
+
+
+Run the simulation
+------------------
+
+To launch the simulation, type
 
 	shell>  acemd acemd_input
 
@@ -81,6 +91,8 @@ will do.
 
 Remarks
 -------
+
+Note that the simulation will start even if the plugin is not found!
 
 Consider that Plumed computes forces on the CPU, thus it will likely
 slow down ACEMD. Also, keep into account that, by default (i.e., not
