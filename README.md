@@ -7,8 +7,9 @@ National Research Council of Italy
 
 
 This is a test case reproducing the phi-psi alanine dipeptide free
-energy plot shown e.g. in references [1] via ACEMD [3] and PLUMED 1 [2]
-or PLUMED 2 [4]. See the directions in the respective directories.
+energy plot shown e.g. in [1] via a metadynamics-biased simulation.
+We use ACEMD [3] and PLUMED 1 [2] or PLUMED 2 [4]. The input files are
+provided in the respective directories.
 
 For information, tutorial and documentation about PLUMED see
 http://www.plumed.org/.
@@ -24,14 +25,14 @@ run is 10 ns, simulated with a timestep of 1 fs. There are 100,000
 gaussians in total, deposited at a rate of 1 every 100 fs.
 
 
-Requirements
+Installation
 ------------
 
 This demo relies on PLUMED 1/2. The easiest way to obtain it is to
-install the plumed1 package in Acellera's conda channel, which
-includes the required ACEMD-compatible version of PLUMED packaged as a
-shared library. If you installed acemd via Conda, you may already have
-it in your system.
+install the corresponding packages through Acellera's conda channel,
+which includes the required ACEMD-compatible version of PLUMED
+packaged as a shared library. If you installed acemd via Conda, you
+may already have it in your system.
 
 
 
