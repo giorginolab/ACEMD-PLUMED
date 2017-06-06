@@ -38,14 +38,21 @@ it in your system.
 Set-up
 ------
 
-We assume that you have ACEMD and PLUMED installed and tested. The
-file `libplumed1plugin.so` and/or `libplumed2plugin.so` should be
-linked in your current directory, or be copied in one of the
-directories indicated by `acemd --command pluginload'.  If installing
-using Conda, the following command will take care of the set-up.
+The file `libplumed1plugin.so` and/or `libplumed2plugin.so` should be
+linked or copied in one of the directories indicated by `acemd
+--command pluginload'.  If installing using Conda, the following
+commands will take care of the set-up.
 
-    ln -s `dirname \`which conda\``/../lib/libplumed1plugin.so .
-    ln -s `dirname \`which conda\``/../lib/libplumed2plugin.so .
+    mkdir $HOME/plugin
+    ln -s `dirname \`which conda\``/../lib/libplumed1plugin.so $HOME/plugin
+    ln -s `dirname \`which conda\``/../lib/libplumed2plugin.so $HOME/plugin
+	
+or, alternatively
+
+    export ACEMD_PLUGIN_DIR=$(dirname "$(which conda)")/../lib
+
+For acemd > 2016.10.27 installed via Conda, the above steps may be
+unnecessary.
 
 
 
@@ -56,26 +63,36 @@ To launch the simulation, type
 
 	shell>  acemd acemd_input
 
-This will take several hours. 
+This will take several hours. Please check the output to ensure that
+the plugin is correctly recognized.
 
 
 
-Animations
-----------
+Reconstruction free energy
+--------------------------
 
-You can try "sum_hills" then "gnuplot" even while the simulation is
-running. This allows you to see metadynamics in action, gradually
-filling the free energy surface. 
+Reconstruction of the free energy landscape occurs post-processing the
+HILLS files via the `sum_hills` utility. For PLUMED 1 it is a separate
+utility, while for PLUMED 2 it is invoked via `plumed sum_hills`. So,
 
-The "reference/animate_fes_100k.avi" file shows an animation of what's
+    shell> plumed sum_hills --hills HILLS   # PLUMED2
+
+generates a `fes.dat` file which can be plotted as follows:
+
+    gnuplot> plot 'fes.dat' with image
+	
+
+Note that you can try "sum_hills" then "gnuplot" even while the
+simulation is running. This allows you to see metadynamics in action,
+gradually filling the free energy surface.
+
+The `reference/animate_fes_100k.avi` file shows an animation of what's
 happening. There are 1000 animation frames taken at 10 ps
 intervals. Between each frame and the next, 100 gaussians are
 deposited. Observe how (at the beginning) the free energy basins are
-alternatively filled.
-
-Note that you will need a recent movie player application to display
-the animation, which is encoded in the h264 format. VLC and mplayer
-will do.
+alternatively filled. (You will need a recent movie player application
+to display the animation, which is encoded in the h264 format. VLC and
+mplayer will do.)
 
 
 
@@ -96,9 +113,24 @@ Restarts are supported in PLUMED, but they require special care to be
 in sync with ACEMD's checkpoints. 
 
 
+Metadynamics parameters
+-----------------------
 
-Acemd parameters (extract from acemd_input)
-----------
+These are set in `META_INP` or `plumed.dat`, respectively. (The files
+can be renamed; here we used the customary names.)
+
+ * CV1: Torsion between atoms 13 15 17 1
+ * CV2: Torsion between atoms 15 17 1  3
+ * Hill width 0.2 Å on both CVs
+ * Hill height 0.1 kcal/mol/rad², deposition rate 1/100 fs  (10 per ps)
+ * Well-tempered metadynamics at T=300°K and bias factor 10.
+ 
+ 
+
+Acemd parameters
+----------------
+
+These are set in `acemd_input`
 
 ```
   switchdist 		20
@@ -110,19 +142,11 @@ Acemd parameters (extract from acemd_input)
   run	     		10000000
 ```
 
-
-PLUMED parameters (extract from META_INP)
-----------
-
-```
-  TORSION LIST 13 15 17 1 SIGMA 0.2
-  TORSION LIST 15 17  1 3 SIGMA 0.2
-  HILLS HEIGHT 0.1 W_STRIDE 100
-  WELLTEMPERED SIMTEMP 300 BIASFACTOR 10
-```
-
-
 Total run length is 10 ns, or 100000 gaussians.
+
+
+
+
 
 
 References
