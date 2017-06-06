@@ -6,20 +6,6 @@ Toni Giorgino 2017
 National Research Council of Italy
 
 
-This is a test case reproducing the phi-psi alanine dipeptide free
-energy plot shown e.g. in references [1] and [2] via PLUMED 1.
-
-
-Methods
--------
-
-This demo uses ACEMD [3] and PLUMED 1 [2] to compute the phi-psi free
-energy landscape of the alanine dipeptide via well-tempered
-metadynamics [1]. The dipeptide is modelled in vacuo with the CHARMM
-forcefield.  The total length of the run is 10 ns, simulated with a
-timestep of 1 fs. There are 100,000 gaussians in total, deposited at a
-rate of 1 every 100 fs.
-
 
 Requirements
 ------------
@@ -105,26 +91,13 @@ in sync with ACEMD's checkpoints.
 
 
 
-References
-----------
-
-[1] A Laio and F L Gervasio. Metadynamics: a method to simulate rare
-events and reconstruct the free energy in biophysics, chemistry and
-material science. Rep. Prog. Phys. 71 (2008)
-doi:10.1088/0034-4885/71/12/126601
-
-[2] M Bonomi et al, PLUMED: a portable plugin for free-energy
-calculations with molecular dynamics. arXiv:0902.0874v3
-
-[3] M. Harvey, G. Giupponi and G. De Fabritiis, ACEMD: Accelerated
-molecular dynamics simulations in the microseconds timescale,
-J. Chem. Theory and Comput. 5, 1632 (2009).
-
-
 
 
 
 ACEMD PARAMETERS (extract from acemd_input)
+----------
+
+```
   switchdist 		20
   cutoff 		22
   timestep 		1
@@ -132,17 +105,18 @@ ACEMD PARAMETERS (extract from acemd_input)
   langevindamping     	1  
   langevintemp        	300
   run	     		10000000
- 
+```
 
 
 PLUMED PARAMETERS (extract from META_INP)
+----------
+
+```
   TORSION LIST 13 15 17 1 SIGMA 0.2
   TORSION LIST 15 17  1 3 SIGMA 0.2
   HILLS HEIGHT 0.1 W_STRIDE 100
   WELLTEMPERED SIMTEMP 300 BIASFACTOR 10
+```
 
 
-
-Total run length:
-  10 ns
-  100000 gaussians 
+Total run length is 10 ns, or 100000 gaussians.
