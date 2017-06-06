@@ -24,19 +24,105 @@ run is 10 ns, simulated with a timestep of 1 fs. There are 100,000
 gaussians in total, deposited at a rate of 1 every 100 fs.
 
 
+Requirements
+------------
+
+This demo relies on PLUMED 1/2. The easiest way to obtain it is to
+install the plumed1 package in Acellera's conda channel, which
+includes the required ACEMD-compatible version of PLUMED packaged as a
+shared library. If you installed acemd via Conda, you may already have
+it in your system.
+
+
+
+Set-up
+------
+
+We assume that you have ACEMD and PLUMED installed and tested. The
+file `libplumed1plugin.so` and/or `libplumed2plugin.so` should be
+linked in your current directory, or be copied in one of the
+directories indicated by `acemd --command pluginload'.  If installing
+using Conda, the following command will take care of the set-up.
+
+    ln -s `dirname \`which conda\``/../lib/libplumed1plugin.so .
+    ln -s `dirname \`which conda\``/../lib/libplumed2plugin.so .
+
+
+
+Run the simulation
+------------------
+
+To launch the simulation, type
+
+	shell>  acemd acemd_input
+
+This will take several hours. 
+
+
+
+Animations
+----------
+
+You can try "sum_hills" then "gnuplot" even while the simulation is
+running. This allows you to see metadynamics in action, gradually
+filling the free energy surface. 
+
+The "reference/animate_fes_100k.avi" file shows an animation of what's
+happening. There are 1000 animation frames taken at 10 ps
+intervals. Between each frame and the next, 100 gaussians are
+deposited. Observe how (at the beginning) the free energy basins are
+alternatively filled.
+
+Note that you will need a recent movie player application to display
+the animation, which is encoded in the h264 format. VLC and mplayer
+will do.
+
+
+
+
+
 Remarks
 -------
 
-Note that the simulation will start even if the plugin is not found!
+Note that the simulation will start **even if the plugin is not
+found** (with the wrong results)!
 
 Consider that Plumed computes forces on the CPU, thus it will likely
 slow down ACEMD. Also, keep into account that, by default (i.e., not
 using GRID), the computation burden increases with each accumulated
 hill.
 
-Restarts are supported in PLUMED1, but they require special care to be
+Restarts are supported in PLUMED, but they require special care to be
 in sync with ACEMD's checkpoints. 
 
+
+
+Acemd parameters (extract from acemd_input)
+----------
+
+```
+  switchdist 		20
+  cutoff 		22
+  timestep 		1
+  langevin            	on
+  langevindamping     	1
+  langevintemp        	300
+  run	     		10000000
+```
+
+
+PLUMED parameters (extract from META_INP)
+----------
+
+```
+  TORSION LIST 13 15 17 1 SIGMA 0.2
+  TORSION LIST 15 17  1 3 SIGMA 0.2
+  HILLS HEIGHT 0.1 W_STRIDE 100
+  WELLTEMPERED SIMTEMP 300 BIASFACTOR 10
+```
+
+
+Total run length is 10 ns, or 100000 gaussians.
 
 
 References
