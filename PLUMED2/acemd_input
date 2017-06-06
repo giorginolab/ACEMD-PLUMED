@@ -1,0 +1,45 @@
+# metadynamics 
+
+
+# set system
+structure    dia2.psf
+coordinates  dia2.pdb
+
+# ffield
+parameters   par_all27_prot_lipid.prm
+exclude scaled1-4
+1-4scaling 1.0
+celldimension 65 65 65
+
+#approx
+switching on
+switchdist 14
+cutoff 16
+
+# integrator
+timestep 1
+
+#output
+energyfreq 1000
+dcdfreq 1000
+outputname outconf
+
+# protocol
+temperature 300.0
+# Constant Temperature Control
+langevin            on    
+langevindamping     1  
+langevintemp        300
+
+# Remember to link it from the ACEMD distribution. See `acemd --command pluginload'
+# e.g.  ln -s `dirname \`which conda\``/../lib/libplumed2plugin.so .
+pluginload testplug plumed2plugin
+pluginarg testplug input plumed.dat
+pluginfreq 1
+
+
+#tclforces on
+seed		791064882
+#script 
+run	     10000000
+
