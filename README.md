@@ -1,5 +1,5 @@
-METADYNAMICS ON ALANINE DIPEPTIDE: PHI-PSI FREE ENERGY DEMO
-===========================================================
+Using PLUMED with ACEMD
+=======================
 
 Toni Giorgino 2017
 

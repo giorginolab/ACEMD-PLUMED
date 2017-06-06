@@ -1,5 +1,5 @@
-METADYNAMICS ON ALANINE DIPEPTIDE: PHI-PSI FREE ENERGY DEMO
-===========================================================
+# ACEMD+PLUMED2 example: dipeptide phi-psi free energy demo 
+
 
 Toni Giorgino 2017
 
@@ -92,23 +92,21 @@ in sync with ACEMD's checkpoints.
 
 
 
-
-
-ACEMD PARAMETERS (extract from acemd_input)
+Acemd parameters (extract from acemd_input)
 ----------
 
 ```
   switchdist 		20
   cutoff 		22
   timestep 		1
-  langevin            	on    
-  langevindamping     	1  
+  langevin            	on
+  langevindamping     	1
   langevintemp        	300
   run	     		10000000
 ```
 
 
-PLUMED PARAMETERS (extract from META_INP)
+PLUMED parameters (extract from META_INP)
 ----------
 
 ```
