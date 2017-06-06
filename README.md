@@ -1,15 +1,15 @@
-Using PLUMED with ACEMD
+Running biased simulations with PLUMED and ACEMD
 =======================
 
-Toni Giorgino 2017
+Toni Giorgino, 2017
 
 National Research Council of Italy
 
 
 This is a test case reproducing the phi-psi alanine dipeptide free
 energy plot shown e.g. in [1] via a metadynamics-biased simulation.
-We use ACEMD [3] and PLUMED 1 [2] or PLUMED 2 [4]. The input files are
-provided in the respective directories.
+We use ACEMD [3] and PLUMED 1 [2] or PLUMED 2 [4].  Input files are
+provided in the corresponding subdirectories of this repository.
 
 For information, tutorial and documentation about PLUMED see
 http://www.plumed.org/.
@@ -118,7 +118,7 @@ Metadynamics parameters
 -----------------------
 
 These are set in `META_INP` or `plumed.dat`, respectively. (The files
-can be renamed; here we used the customary names.)
+can be renamed; here we used the "traditional" names.)
 
  * CV1: Torsion between atoms 13 15 17 1
  * CV2: Torsion between atoms 15 17 1  3
@@ -143,7 +143,7 @@ These are set in `acemd_input`
   run	     		10000000
 ```
 
-Total run length is 10 ns, or 100000 gaussians.
+
 
 
 
