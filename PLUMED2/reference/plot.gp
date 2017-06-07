@@ -13,3 +13,5 @@ do for [i=0:n]{
   plot fn w image title ng
 }
 set output
+
+# ffmpeg -i animate.gif animate.mp4

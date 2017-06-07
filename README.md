@@ -89,7 +89,7 @@ Notes:
    running. This allows you to see metadynamics in action, gradually
    filling the free energy surface.
  * The `sum_hills` utility in PLUMED 2 uses kJ/mol units by default
-   (multiply by 4.2 to get kcal/mol), and a different reference for
+   (multiply by 4.184 to get kcal/mol), and a different reference for
    zero energy.
    
 The animation files in the reference directories show an illustration
