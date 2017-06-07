@@ -1,14 +1,15 @@
 # http://gnuplot-surprising.blogspot.it/2012/04/new-version-of-gnuplot-makes-iterations.html
 
-# plumed sum_hills --stride 1000 --hills HILLS 
+# plumed sum_hills --stride 100 --hills HILLS 
 
 reset
 set term gif animate
 set output "animate.gif"
-n=100 #n frames
+n=1000                         # n. frames
+set cbrange [0:6]
 do for [i=0:n]{
   fn=sprintf("fes_%d.dat",i)
-  ng=sprintf("%d k gaussians",i+1)
+  ng=sprintf("ΔG (kJ/mol), %.1f k gaussians",(i+1)/10.)
   plot fn w image title ng
 }
 set output

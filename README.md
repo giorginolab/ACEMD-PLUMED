@@ -83,12 +83,17 @@ generates a `fes.dat` file which can be plotted as follows:
     gnuplot> plot 'fes.dat' with image
 	
 
-Note that you can try "sum_hills" then "gnuplot" even while the
-simulation is running. This allows you to see metadynamics in action,
-gradually filling the free energy surface.
+Notes:
 
-The `reference/animate_fes_100k.avi` file shows an animation of what's
-happening. There are 1000 animation frames taken at 10 ps
+ * You can try "sum_hills" then "gnuplot" even while the simulation is
+   running. This allows you to see metadynamics in action, gradually
+   filling the free energy surface.
+ * The `sum_hills` utility in PLUMED 2 uses kJ/mol units by default
+   (multiply by 4.2 to get kcal/mol), and a different reference for
+   zero energy.
+   
+The animation files in the reference directories show an illustration
+of what's happening. There are 1000 animation frames taken at 10 ps
 intervals. Between each frame and the next, 100 gaussians are
 deposited. Observe how (at the beginning) the free energy basins are
 alternatively filled. (You will need a recent movie player application
