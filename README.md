@@ -69,7 +69,24 @@ the plugin is correctly recognized.
 
 
 
-Reconstruction free energy
+
+Remarks
+-------
+
+Note that the simulation will start **even if the plugin is not
+found** (with the wrong results)!
+
+Consider that Plumed computes forces on the CPU, thus it will likely
+slow down ACEMD. Also, keep into account that, by default (i.e., not
+using GRID), the computation burden increases with each accumulated
+hill.
+
+Restarts are supported in PLUMED, but they require special care to be
+in sync with ACEMD's checkpoints. 
+
+
+
+Reconstruction of the free energy landscape
 --------------------------
 
 Reconstruction of the free energy landscape occurs post-processing the
@@ -102,21 +119,6 @@ mplayer will do.)
 
 
 
-
-
-Remarks
--------
-
-Note that the simulation will start **even if the plugin is not
-found** (with the wrong results)!
-
-Consider that Plumed computes forces on the CPU, thus it will likely
-slow down ACEMD. Also, keep into account that, by default (i.e., not
-using GRID), the computation burden increases with each accumulated
-hill.
-
-Restarts are supported in PLUMED, but they require special care to be
-in sync with ACEMD's checkpoints. 
 
 
 Metadynamics parameters
