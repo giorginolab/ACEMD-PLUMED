@@ -8,6 +8,8 @@ METAD ...
  LABEL=bias
  ARG=phi,psi
  SIGMA=0.2,0.2
+ GRID_MIN=-pi,-pi
+ GRID_MAX=pi,pi
  HEIGHT=0.1
  PACE=100
  TEMP=300
