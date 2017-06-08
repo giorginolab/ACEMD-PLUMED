@@ -39,9 +39,10 @@ may already have it in your system.
 Set-up
 ------
 
-The file `libplumed1plugin.so` and/or `libplumed2plugin.so` should be
-linked or copied in one of the directories indicated by `acemd
---command pluginload'.  If installing using Conda, the following
+The files `libplumed1plugin.so` and/or `libplumed2plugin.so` should be
+found in one of the directories indicated by `acemd
+--command pluginload`.  With acemd > 2016.10.27
+this will be taken care by the conda installer. Until then, the following
 commands will take care of the set-up.
 
     mkdir $HOME/plugin
@@ -52,8 +53,7 @@ or, alternatively
 
     export ACEMD_PLUGIN_DIR=$(dirname "$(which conda)")/../lib
 
-For acemd > 2016.10.27 installed via Conda, the above steps may be
-unnecessary.
+
 
 
 
