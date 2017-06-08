@@ -8,7 +8,8 @@ National Research Council of Italy
 
 This is a test case reproducing the phi-psi alanine dipeptide free
 energy plot shown e.g. in [1] via a metadynamics-biased simulation.
-We use ACEMD [3] and PLUMED 1 [2] or PLUMED 2 [4].  Input files are
+We use [ACEMD](https://www.htmd.org/docs/latest/acemd.html) [3] 
+and PLUMED 1 [2] or PLUMED 2 [4].  Input files are
 provided in the corresponding subdirectories of this repository.
 
 For information, tutorial and documentation about PLUMED see
@@ -81,7 +82,7 @@ slow down ACEMD and, by default, the computation burden increases
 with each accumulated hill. The solution is to use PLUMED's `GRID`
 option (enabled in PLUMED2's example).
 
-Restarts are supported in PLUMED, but they require special care to be
+Restarts are supported in PLUMED, but they require care to be
 in sync with ACEMD's checkpoints. 
 
 
@@ -109,11 +110,7 @@ Notes:
    illustration of what's happening. There are 1000 animation frames
    taken at 10 ps intervals. Between each frame and the next, 100
    gaussians are deposited. Observe how (at the beginning) the free
-   energy basins are alternatively filled. (You will need a recent
-   movie player application to display the animation, which is encoded
-   in the h264 format. VLC and mplayer will do.)
-
-
+   energy basins are alternatively filled.
 
 
 
