@@ -77,9 +77,9 @@ Note that the simulation will start **even if the plugin is not
 found** (with the wrong results)!
 
 Consider that Plumed computes forces on the CPU, thus it will likely
-slow down ACEMD. Also, keep into account that, by default (i.e., not
-using GRID), the computation burden increases with each accumulated
-hill.
+slow down ACEMD and, by default, the computation burden increases 
+with each accumulated hill. The solution is to use PLUMED's `GRID`
+option (enabled in PLUMED2's example).
 
 Restarts are supported in PLUMED, but they require special care to be
 in sync with ACEMD's checkpoints. 
