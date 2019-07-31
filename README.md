@@ -1,7 +1,7 @@
 Running biased simulations with PLUMED and ACEMD
 =======================
 
-Toni Giorgino, 2017
+Toni Giorgino, 2019
 
 National Research Council of Italy
 
@@ -42,15 +42,9 @@ Set-up
 
 The files `libplumed1plugin.so` and/or `libplumed2plugin.so` should be
 found in one of the directories indicated by `acemd
---command pluginload`.  With acemd > 2016.10.27
-this will be taken care by the conda installer. Until then, the following
-commands will take care of the set-up.
-
-    mkdir $HOME/plugin
-    ln -s `dirname \`which conda\``/../lib/libplumed1plugin.so $HOME/plugin
-    ln -s `dirname \`which conda\``/../lib/libplumed2plugin.so $HOME/plugin
-	
-or, alternatively
+--command pluginload`.  This should be taken care by
+the conda installer. If not, or you want to use custom builds, 
+the following command set different paths:
 
     export ACEMD_PLUGIN_DIR=$(dirname "$(which conda)")/../lib
 
@@ -80,7 +74,7 @@ found** (with the wrong results)!
 Consider that Plumed computes forces on the CPU, thus it will likely
 slow down ACEMD and, by default, the computation burden increases 
 with each accumulated hill. The solution is to use PLUMED's `GRID`
-option (enabled in PLUMED2's example).
+option (see PLUMED2's example).
 
 Restarts are supported in PLUMED, but they require care to be
 in sync with ACEMD's checkpoints. 
