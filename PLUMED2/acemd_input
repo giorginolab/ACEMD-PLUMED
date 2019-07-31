@@ -22,7 +22,7 @@ timestep 1
 #output
 energyfreq 1000
 dcdfreq 1000
-outputname outconf
+outputname output
 
 # protocol
 temperature 300.0
@@ -34,7 +34,7 @@ langevintemp        300
 # Remember to link it from the ACEMD distribution. See `acemd --command pluginload'
 # e.g.  ln -s `dirname \`which conda\``/../lib/libplumed2plugin.so .
 pluginload testplug plumed2plugin
-pluginarg testplug input plumed.dat
+pluginarg testplug input diala.plumed
 pluginfreq 1
 
 
