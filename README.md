@@ -8,8 +8,8 @@ National Research Council of Italy
 
 This is a test case reproducing the phi-psi alanine dipeptide free
 energy plot shown e.g. in [1] via a metadynamics-biased simulation.
-We use [ACEMD](https://www.htmd.org/docs/latest/acemd.html) [3] 
-and PLUMED 1 [2] or PLUMED 2 [4].  Input files are
+We use [ACEMD](https://www.htmd.org/docs/latest/acemd.html). [3]
+The current version, ACEMD3, supports PLUMED 2 [4]. Input files are
 provided in the corresponding subdirectories of this repository.
 
 For information, tutorial and documentation about PLUMED see
@@ -29,7 +29,7 @@ gaussians in total, deposited at a rate of 1 every 100 fs.
 Installation
 ------------
 
-This demo relies on PLUMED 1/2. The easiest way to obtain it is to
+This demo relies on PLUMED 2. The easiest way to obtain it is to
 install the corresponding packages through Acellera's conda channel,
 which includes the required ACEMD-compatible version of PLUMED
 packaged as a shared library. If you installed acemd via Conda, you

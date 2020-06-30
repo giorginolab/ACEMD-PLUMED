@@ -1,0 +1,30 @@
+# metadynamics 
+
+
+# set system
+structure    dia2.psf
+coordinates  dia2.pdb
+
+# ffield
+parameters   par_all27_prot_lipid.prm
+
+# integrator
+timestep 1
+
+#output
+energyfreq 1000
+dcdfreq 1000
+outputname output
+
+# protocol
+temperature 300.0
+
+# Constant Temperature Control
+langevin            on    
+langevindamping     1  
+langevintemp        300
+
+plumedFile    diala.plumed
+
+run	     10000000
+
