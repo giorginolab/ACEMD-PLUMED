@@ -7,14 +7,14 @@ coordinates  dia2.pdb
 
 # ffield
 parameters   par_all27_prot_lipid.prm
+celldimension 32 32 32
 
 # integrator
 timestep 1
 
 #output
-energyfreq 1000
-dcdfreq 1000
-outputname output
+trajectoryperiod 1000
+
 
 # protocol
 temperature 300.0

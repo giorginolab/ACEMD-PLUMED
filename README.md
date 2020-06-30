@@ -29,55 +29,13 @@ gaussians in total, deposited at a rate of 1 every 100 fs.
 Installation
 ------------
 
-This demo relies on PLUMED 2. The easiest way to obtain it is to
+This demo relies on PLUMED 2 and ACEMD3 version >=3.3.0. 
+The easiest way to obtain them is to
 install the corresponding packages through Acellera's conda channel,
 which includes the required ACEMD-compatible version of PLUMED
 packaged as a shared library. If you installed acemd via Conda, you
 may already have it in your system.
 
-
-
-Set-up
-------
-
-The files `libplumed1plugin.so` and/or `libplumed2plugin.so` should be
-found in one of the directories indicated by `acemd
---command pluginload`.  This should be taken care by
-the conda installer. If not, or you want to use custom builds, 
-the following command set different paths:
-
-    export ACEMD_PLUGIN_DIR=$(dirname "$(which conda)")/../lib
-
-
-
-
-
-Run the simulation
-------------------
-
-To launch the simulation, type
-
-	shell>  acemd acemd_input
-
-This will take several hours. Please check the output to ensure that
-the plugin is correctly recognized.
-
-
-
-
-Remarks
--------
-
-Note that the simulation will start **even if the plugin is not
-found** (with the wrong results)!
-
-Consider that Plumed computes forces on the CPU, thus it will likely
-slow down ACEMD and, by default, the computation burden increases 
-with each accumulated hill. The solution is to use PLUMED's `GRID`
-option (see PLUMED2's example).
-
-Restarts are supported in PLUMED, but they require care to be
-in sync with ACEMD's checkpoints. 
 
 
 
@@ -122,20 +80,6 @@ can be renamed; here we used the "traditional" names.)
  
  
 
-Acemd parameters
-----------------
-
-These are set in `acemd_input`
-
-```
-  switchdist 		20
-  cutoff 		22
-  timestep 		1
-  langevin            	on
-  langevindamping     	1
-  langevintemp        	300
-  run	     		10000000
-```
 
 
 
