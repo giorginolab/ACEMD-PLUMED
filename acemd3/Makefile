@@ -1,7 +1,7 @@
 default: run fes.dat
 
 run:
-	acemd acemd_input
+	acemd3 acemd_input
 
 fes.dat:
 	plumed sum_hills --hills HILLS
@@ -11,5 +11,5 @@ fes.png: fes.dat
 
 
 clean:
-	rm bck.* restart.* HILLS colvar fes.dat plumed.log output.*
+	-rm bck.* restart.* HILLS colvar fes.dat plumed.log output.*
 
