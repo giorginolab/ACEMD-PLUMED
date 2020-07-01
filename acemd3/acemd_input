@@ -7,7 +7,7 @@ coordinates  dia2.pdb
 
 # ffield
 parameters   par_all27_prot_lipid.prm
-celldimension 32 32 32
+boxsize 32 32 32
 
 # integrator
 timestep 1
@@ -20,9 +20,9 @@ trajectoryperiod 1000
 temperature 300.0
 
 # Constant Temperature Control
-langevin            on    
-langevindamping     1  
-langevintemp        300
+thermostat            on    
+thermostatdamping     1  
+thermostatTemperature 300
 
 plumedFile    diala.plumed
 

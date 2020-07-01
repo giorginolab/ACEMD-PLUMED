@@ -11,5 +11,5 @@ fes.png: fes.dat
 
 
 clean:
-	-rm bck.* restart.* HILLS colvar fes.dat plumed.log output.*
+	-rm bck.* restart.* HILLS colvar fes.dat plumed.log output.* *.ref
 
