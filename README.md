@@ -1,3 +1,9 @@
+Note added in 2023
+==================
+
+The experiments in this document are now largely obsolete. There
+is a [PLUMED section](https://software.acellera.com/acemd/tutorial.html#metadynamics-simulation-of-alaninde-dipeptide) in the ACEMD manual.
+
 Running biased simulations with PLUMED and ACEMD
 =======================
 
